@@ -7,10 +7,9 @@
 	<groupId>com.ijuru</groupId>
 	<artifactId>imibare-web</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>1.0.1-SNAPSHOT</version>
   
-	<name>imibare-web Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>Imibare Web Interface</name>
 	
 	<dependencies>
 	    <dependency>
