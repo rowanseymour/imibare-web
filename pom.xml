@@ -11,6 +11,12 @@
   
 	<name>Imibare Web Interface</name>
 	
+	<scm>
+		<connection>scm:git:git@github.com:rowanseymour/imibare-web.git</connection>
+		<developerConnection>scm:git:git@github.com:rowanseymour/imibare-web.git</developerConnection>
+		<url>scm:git:git@github.com:rowanseymour/imibare-web.git</url>
+	</scm>
+	
 	<dependencies>
 	    <dependency>
 			<groupId>javax.servlet</groupId>
