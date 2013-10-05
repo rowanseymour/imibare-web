@@ -30,9 +30,9 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Imibare</a></li>
-					<li><a href="#about">Wordify</a></li>
+					<!--<li><a href="#about">Wordify</a></li>-->
 				</ul>
-			</div><!--/.nav-collapse -->
+			</div>
 		</div>
 	</div>
 
@@ -42,7 +42,7 @@
 			<br />
 			<ul class="list-group">
 				<li class="list-group-item" ng-repeat="r in renderers | orderBy:'languageName'">
-					<strong>{{r.languageName}}</strong>
+					<span class="label label-default">{{r.languageName}}</span>
 
 					<select ng-if="r.supports.length > 0"
 							ng-model="r.selectedClassification"
