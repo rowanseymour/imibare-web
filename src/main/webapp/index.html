@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Imibare</title>
+
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.min.js"></script>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+
+		<script type="text/javascript" src="js/services.js"></script>
+		<script type="text/javascript" src="js/controllers.js"></script>
+	</head>
+	<body ng-app="imibare">
+
+	<!-- Static navbar -->
+	<div class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Number Tools</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Imibare</a></li>
+					<li><a href="#about">Wordify</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+
+		<div class="container" ng-controller="ImibareCtrl">
+
+			<input type="text" class="form-control input-lg" placeholder="Enter a number" ng-model="number" ng-change="updateAllRenderings()" />
+			<br />
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="r in renderers | orderBy:'languageName'">
+					<strong>{{r.languageName}}</strong>
+
+					<select ng-if="r.supports.length > 0"
+							ng-model="r.selectedClassification"
+							ng-options="formatNounClassification(classification) for classification in r.supports"
+							ng-change="updateRendering(r)"
+					>
+					</select>
+
+					{{r.rendering}}
+				</li>
+			</ul>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					Source code for the number rendering library available <a href="https://github.com/rowanseymour/imibare">here</a>.
+					So far only English, French, Kinyarwanda and Kirundi are supported because those are the languages I'm familiar
+					with. Feel to try implementing more and sending a pull request!
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
