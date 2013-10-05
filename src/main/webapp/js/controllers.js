@@ -1,9 +1,9 @@
 /**
- * Controller main page
+ * Renderer controller
  * @param $scope the model scope
  * @param rendererService the renderer service
  */
-function ImibareCtrl($scope, rendererService) {
+function RendererCtrl($scope, rendererService) {
 	$scope.renderers = [];
 
 	/**
@@ -52,5 +52,55 @@ function ImibareCtrl($scope, rendererService) {
 		$scope.renderers = response;
 
 		$scope.updateAllRenderings();
+	});
+}
+
+/**
+ * Wordifier controller
+ * @param $scope the model scope
+ * @param wordifierService the wordifier service
+ */
+function WordifierCtrl($scope, wordifierService) {
+	$scope.wordifiers = [];
+
+	/**
+	 * Formats a word sequence
+	 * @param sequence word sequence
+	 * @returns {*}
+	 */
+	$scope.formatWordSequence = function(sequence) {
+		return 'xxx';
+	};
+
+	/**
+	 * Updates the wordifications for the given wordifier
+	 * @param wordifier the wordifier
+	 */
+	$scope.updateWordification = function(wordifier) {
+		var number = parseInt($scope.number);
+
+		if (!isNaN(number)) {
+			wordifierService.wordify(wordifier, $scope.number, function(response) {
+				wordifier.wordification = response;
+			});
+		} else {
+			wordifier.wordification = '';
+		}
+	};
+
+	/**
+	 * Updates all wordifications
+	 */
+	$scope.updateAllWordifications = function() {
+		for (var w = 0; w < $scope.wordifiers.length; w++) {
+			$scope.updateWordification($scope.wordifiers[w]);
+		}
+	};
+
+	/**
+	 * Initialise the list of wordifiers...
+	 */
+	wordifierService.getAll(function(response) {
+		$scope.wordifiers = response;
 	});
 }

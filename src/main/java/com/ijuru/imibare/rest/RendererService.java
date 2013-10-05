@@ -19,10 +19,10 @@
 
 package com.ijuru.imibare.rest;
 
-import com.ijuru.imibare.NumberRendererFactory;
-import com.ijuru.imibare.UnsupportedLanguageException;
-import com.ijuru.imibare.lang.NounClassification;
-import com.ijuru.imibare.renderer.NumberRenderer;
+import com.ijuru.kubara.NumberRendererFactory;
+import com.ijuru.kubara.UnsupportedLanguageException;
+import com.ijuru.kubara.lang.NounClassification;
+import com.ijuru.kubara.renderer.NumberRenderer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

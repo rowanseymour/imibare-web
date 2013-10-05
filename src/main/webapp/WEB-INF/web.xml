@@ -4,6 +4,10 @@
 
 	<display-name>Imibare Web App</display-name>
 
+	<listener>
+		<listener-class>com.ijuru.imibare.Listener</listener-class>
+	</listener>
+
 	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>

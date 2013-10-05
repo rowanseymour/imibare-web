@@ -16,6 +16,7 @@ app.factory('rendererService', function ($resource, $http) {
 				callback(response);
 			});
 		},
+
 		/**
 		 * Renders the given number
 		 * @param renderer the renderer
@@ -29,6 +30,40 @@ app.factory('rendererService', function ($resource, $http) {
 			if (classification) {
 				url += '/' + classification.code;
 			}
+
+			$http({method: 'GET', url: url})
+			.success(function(response){
+				callback(response);
+			});
+		}
+	}
+});
+
+/**
+ * The wordifier service
+ */
+app.factory('wordifierService', function ($resource, $http) {
+	return {
+		/**
+		 * Gets all available wordifiers
+		 * @param callback called when request is complete
+		 */
+		getAll: function(callback) {
+			var api = $resource('rest/wordifiers');
+
+			api.query(function(response) {
+				callback(response);
+			});
+		},
+
+		/**
+		 * Wordifies the given number
+		 * @param wordifier the wordifier
+		 * @param number the number
+		 * @param callback called when request is complete
+		 */
+		wordify: function(wordifier, number, callback) {
+			var url = 'rest/wordifiers/' + wordifier.locale + '/' + number;
 
 			$http({method: 'GET', url: url})
 			.success(function(response){
