@@ -23,6 +23,7 @@ public class Context {
 	 */
 	public static void startApp() throws Exception {
 		loadWordList(new Locale("en"));
+		loadWordList(new Locale("rw"));
 	}
 
 	/**
